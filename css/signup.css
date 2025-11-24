@@ -1,0 +1,183 @@
+/* 기본 리셋 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  height: 100%;
+  background: #f4f5f7;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 헤더 */
+.site-header {
+  position: relative;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.site-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* 뒤로가기 버튼 */
+.back {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* 레이아웃 */
+.page {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* 카드 */
+.card {
+  width: 400px;
+  text-align: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+.card-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+/* 프로필 업로더 */
+.avatar-upload {
+  margin-bottom: 20px;
+}
+
+.avatar-label {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.req {
+  color: #ef4444;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* 동그란 프로필 틀 */
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  background: #e5e7eb;
+  margin: 0 auto;
+  position: relative;      /* 안에 있는 img, +를 절대위치로 올리기 위해 */
+  overflow: hidden;        /* 둥근 틀 밖으로 삐져나온 부분 잘라내기 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 기본 / 선택된 이미지가 동그란 틀 안에 꽉 차게 */
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* 비율 유지하면서 잘라서 채우기 */
+  border-radius: 50%;
+  display: block;
+}
+
+/* + 아이콘을 가운데에 겹치게 (원하면 오른쪽 아래로 옮겨도 됨) */
+.plus {
+  position: absolute;
+  font-size: 36px;
+  color: #4b5563;
+  transform: translateY(-2px);
+  pointer-events: none;    /* 클릭 이벤트는 input(label)에 가도록 */
+}
+
+
+/* 폼 */
+.form {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.field {
+  text-align: left;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.field input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: white;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(167,139,250,0.25);
+}
+
+.helper {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #ef4444;
+  display: none;
+}
+
+.helper.error {
+  display: block;
+}
+
+/* 버튼 */
+.btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.primary {
+  background: #aca0eb;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #7f6aee;
+}
+
+.btn.link {
+  background: transparent;
+  width: auto;
+  margin-top: 12px;
+  padding: 8px 16px;
+}
+
+.btn.link:hover {
+  background: #f3f4f6;
+}
