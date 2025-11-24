@@ -1,0 +1,83 @@
+/* 기본 폰트/배경 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  font-family: "Pretendard", sans-serif;
+  background: #F4F5F7;
+}
+
+/* 모달 기본 */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal.open {
+  display: flex;
+}
+
+/* 반투명 배경 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* 다이얼로그 */
+.dialog {
+  position: relative;
+  width: 260px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 18px 18px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+  text-align: center;
+  animation: fadeIn 0.15s ease-out;
+}
+@keyframes fadeIn {
+  from { transform: translateY(8px); opacity: 0.8; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* 제목 / 설명 */
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+.desc {
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 18px;
+}
+
+/* 버튼 */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.btn {
+  height: 38px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn.cancel {
+  background: #111827;
+  color: #fff;
+}
+.btn.confirm {
+  background: #ACA0EB;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+.btn.confirm:hover {
+  background: #7F6AEE;
+}
