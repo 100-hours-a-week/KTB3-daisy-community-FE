@@ -5,122 +5,42 @@
   padding: 0;
 }
 
-html,
-body {
-  height: 100%;
-  background: #f4f5f7;
-  font-family: "Pretendard", sans-serif;
-  color: #111827;
-}
-
-/* 헤더 */
-.site-header {
-  border-bottom: 1px solid #e5e7eb;
-  padding: 18px 20px;
-  text-align: center;
-  position: relative;
-}
-
-.site-header h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-/* 오른쪽 프로필 아이콘 영역 */
-.userbox {
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* 프로필 버튼 */
-.userbtn {
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-}
-
-/* 동그란 프로필 이미지 */
-.userbtn img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: block;
-}
-
-/* 드롭다운 메뉴 */
-.menu {
-  position: absolute;
-  right: 0;
-  margin-top: 8px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  min-width: 140px;
-  padding: 6px 0;
-  z-index: 10;
-}
-
-.menu a,
-.menu button {
-  display: block;
-  width: 100%;
-  padding: 8px 14px;
-  font-size: 14px;
-  text-align: left;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: #111827;
-}
-
-.menu a:hover,
-.menu button:hover {
-  background: #f3f4f6;
-}
-
-/* 메인 페이지 중앙 정렬 */
-.page {
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
 /* 게시글 리스트 컨테이너 */
 .post-list {
   width: 520px;
 }
 
-/* 상단 인트로 */
+/* intro 영역 */
 .intro {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 40px;
 }
 
 .intro p {
-  margin-bottom: 16px;
+  margin: 6px 0;
   font-size: 16px;
-  line-height: 1.4;
+  color: #462710;
 }
 
-/* 상단 보라 버튼 */
+#writeBtn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* 게시글 작성 버튼 (브랜드 컬러 반영) */
 .btn.primary {
-  background-color: #aca0eb;
-  color: #fff;
+  background-color: #8C5B3F;     /* 따뜻한 골드베이지 */
+  color: #ffffff;
   border: none;
-  padding: 10px 24px;
-  border-radius: 18px;
+  padding: 10px 20px;
+  border-radius: 14px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.btn.primary:hover {
-  background-color: #7f6aee;
+  transition: all .2s ease;
 }
 
 /* 게시글 리스트 */
@@ -133,76 +53,71 @@ body {
 
 /* 게시글 카드 */
 .post {
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 12px;
   padding: 16px 20px 14px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #F3E7D3; /* 따뜻한 라인 */
   text-align: left;
   transition: box-shadow 0.2s;
 }
 
 .post:hover {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 8px rgba(70, 39, 16, 0.08);
 }
 
-/* 카드 전체 클릭 가능하게 */
+/* 카드 전체 클릭 */
 .post a {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-/* 제목 라인 */
+/* 제목 */
 .post-header {
   margin-bottom: 6px;
 }
 
 .post-header .title {
   font-size: 15px;
-  font-weight: 600; /* 제목 굵게 */
+  font-weight: 600;
+  color: #462710;
 }
 
-/* 좋아요 / 댓글 / 조회수 + 날짜 한 줄 */
+/* 좋아요 / 댓글 / 조회수 */
 .post-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 11px;
-  color: #6b7280;
+  color: #6B6460; /* 차가운 회색 대신 따뜻한 그레이 */
   margin-bottom: 8px;
 }
 
-.post-info-left span + span {
-  margin-left: 8px;
-}
-
 .post-info .date {
-  font-size: 11px;
-  color: #9ca3af;
+  color: #9d928b; /* 부드러운 날짜 컬러 */
 }
 
-/* 제목/정보와 작성자 사이 라인 */
+/* 구분선 */
 .post-divider {
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #F3E7D3;
   margin: 8px 0 6px;
 }
 
-/* 작성자 영역 */
+/* 작성자 */
 .post-writer {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #4b5563;
+  color: #6B6460;
 }
 
-/* 게시글 목록 안에서 쓰는 작은 프로필 동그라미 */
 .post-writer .avatar {
   width: 24px;
   height: 24px;
   border-radius: 50%;
   object-fit: cover;
-  background: #e5e7eb;
+  background: #F3E7D3;
   flex-shrink: 0;
 }
 
@@ -210,26 +125,8 @@ body {
 .post.empty {
   text-align: center;
   font-size: 14px;
-  color: #6b7280;
+  color: #938b84;
 }
-/* 게시글 작성 버튼을 오른쪽에 띄우되, 위쪽과 간격을 넉넉하게 */
-.intro {
-  text-align: center;
-  margin-bottom: 12px; /* 인트로 아래 전체 간격 */
-  position: relative;
-  padding-bottom: 40px; /* 버튼과의 간격 확보 */
-}
-
-.intro #writeBtn {
-  position: absolute;
-  right: 0;
-  bottom: 0; /* 아래쪽으로 내려 자연스러운 위치로 */
-}
-
-.intro p {
-  margin: 4px 0;   /* 위아래 4px만 유지 */
-}
-
 
 .bold {
   font-weight: 700;

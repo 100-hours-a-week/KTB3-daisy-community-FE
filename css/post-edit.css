@@ -1,173 +1,134 @@
-/* 기본 리셋 */
+/* 리셋 */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html,
-body {
-  height: 100%;
-  background: #F4F5F7;
-  font-family: "Pretendard", sans-serif;
-  color: #111827;
-}
-
-/* 헤더 */
-.site-header {
-  position: relative;
-  border-bottom: 1px solid #E5E7EB;
-  padding: 18px 20px;
-  text-align: center;
-}
-.site-header h1 {
-  font-size: 24px;
-  font-weight: 600;
-}
-.site-header .back {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  border: none;
-  background: transparent;
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  color: #111827;
-}
-.user-icon {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.user-icon img {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-}
-
-/* 페이지 레이아웃 */
-.page {
-  display: flex;
-  justify-content: center;
-  padding: 48px 16px 56px;
-}
-
-/* 가운데 에디터 영역 (카드 느낌 없이) */
+/* 에디터 카드 */
 .editor {
-  width: 640px;
-  background: transparent;
-  box-shadow: none;
+  width: 720px;                 /* 창 넓게 */
+  background: #FFF9F2;          /* 카드 배경 */
+  border-radius: 18px;
+  border: 1px solid #E2D6C8;
+  box-shadow: 0 6px 16px rgba(70, 39, 16, 0.08);
+  padding: 28px 32px 32px;
 }
 
-/* 상단 제목 (게시글 작성) */
+/* 상단 제목 */
 .page-title {
-  text-align: center;
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
+  color: #462710;
 }
 
-/* 폼 공통 */
+/* 폼 레이아웃 */
 .form {
   display: grid;
-  gap: 32px;
+  gap: 20px;
 }
 
-/* 라벨 / 파일 라벨 */
-.field label,
-.file-label {
+/* 라벨 + 인풋 공통 */
+.field {
+  text-align: left;
+}
+
+.field label {
   display: block;
+  margin-bottom: 8px;
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 8px;
+  color: #462710;
 }
 
-
-/* 인풋 / 텍스트에어리어 - 언더라인 스타일 */
-input[type="text"],
-textarea {
+/* 텍스트 인풋 */
+.field input[type="text"] {
   width: 100%;
-  border: none;
-  border-bottom: 1px solid #E5E7EB;
-  border-radius: 0;
-  background: transparent;
-  padding: 10px 0;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #D9CBB8;
+  padding: 0 12px;
   font-size: 14px;
+  background: #FFFDF9;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 140px;
-}
-
-/* 포커스 시 밑줄만 강조 */
-input:focus,
-textarea:focus {
-  border-color: #A78BFA;
-  box-shadow: none;
+.field input[type="text"]:focus {
+  border-color: #D9A86C;
+  box-shadow: 0 0 0 3px rgba(217, 168, 108, 0.25);
   outline: none;
 }
 
+/* 내용 textarea */
+.field textarea {
+  width: 100%;
+  min-height: 260px;            /* 창 크게 */
+  border-radius: 12px;
+  border: 1px solid #D9CBB8;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  background: #FFFDF9;
+}
+
+.field textarea:focus {
+  border-color: #D9A86C;
+  box-shadow: 0 0 0 3px rgba(217, 168, 108, 0.25);
+  outline: none;
+}
 
 /* 파일 업로드 */
-.filebox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.filebox input[type="file"] {
-  display: none;
-}
-.file-btn {
-  width: auto;
-  padding: 8px 14px;
-  background: #E5E7EB;
-  color: #111827;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-}
-.file-btn:hover {
-  background: #DADDE3;
-}
-.file-hint {
+.field input[type="file"] {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #D9CBB8;
+  padding: 8px 10px;
+  background: #FFFDF9;
   font-size: 13px;
-  color: #6B7280;
+  color: #6B6460;
 }
 
-/* 버튼 공통 */
-.btn {
-  height: 44px;
+/* 브라우저 기본 버튼 느낌 조금 줄이기 */
+.field input[type="file"]::file-selector-button {
   border: none;
+  background: #E2D6C8;
+  color: #462710;
   border-radius: 8px;
+  padding: 6px 12px;
+  margin-right: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 버튼 영역 */
+.actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 완료 버튼 – 공통 컬러 */
+.btn {
+  min-width: 110px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
 }
 
-/* 보라색 완료 버튼 */
 .btn.primary {
-  width: 320px;
-  background: #ACA0EB;
-  color: #fff;
-  transition: background-color 0.2s;
-}
-.btn.primary:hover {
-  background: #7F6AEE;
-}
-.btn.primary:disabled {
-  opacity: 0.8;
-  cursor: not-allowed;
+  background-color: #E2D6C8;    /* post-list와 동일 버튼색 */
+  color: #A39385;
+  box-shadow: 0 4px 10px rgba(140, 91, 63, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
 }
 
-/* 제출 버튼 영역 (가운데 정렬) */
-.actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
+
+.btn.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(140, 91, 63, 0.35);
 }

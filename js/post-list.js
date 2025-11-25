@@ -2,28 +2,18 @@ import { showToast, openConfirm } from './util.js';
 import { apiFetch } from './api.js';
 
 (() => {
-  const userBtn = document.querySelector('.userbtn');
-  const menu = document.querySelector('.menu');
-  const logoutBtn = document.getElementById('logout');
   const postsEl = document.querySelector('.posts');
   const writeBtn = document.getElementById('writeBtn');
+
 
   let nextCursor = null;
   let isLast = false;
   let isLoading = false;
 
-  function toggleMenu() {
-    if (!userBtn || !menu) return;
-    const isOpen = userBtn.getAttribute('aria-expanded') === 'true';
-
-    userBtn.removeAttribute('aria-expanded', !isOpen);
-    if (isOpen) {
-      userBtn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('hidden', '');
-    } else {
-      userBtn.setAttribute('aria-expanded', 'true');
-      menu.removeAttribute('hidden');
-    }
+  const token = localStorage.getItem('accessToken');
+  if(!token) {
+    window.location.href = '/login.html';
+    return;
   }
 
   writeBtn?.addEventListener('click', () => {
@@ -138,21 +128,6 @@ function setupInfiniteScroll() {
     }
   });
 }
-
-
-  logoutBtn?.addEventListener('click', () => {
-    openConfirm('로그아웃 하시겠습니까?', '다시 로그인해야 합니다.', async () => {
-      try {
-        await apiFetch('/users/auth/revoke', {
-          method: 'POST',
-        });
-      } catch (_) {}
-      location.href = '/login.html';
-    });
-  });
-
-  userBtn?.addEventListener('click', toggleMenu);
-
-  loadPosts();
-  setupInfiniteScroll();
+loadPosts();
+setupInfiniteScroll();
 })();

@@ -1,0 +1,135 @@
+/* 헤더 전체 영역 */
+.site-header {
+  width: 100%;
+  border-bottom: 1px solid #F3E7D3;
+  background-color: #FFF9F2;
+}
+
+/* 헤더 컨테이너 – 로고를 항상 정중앙에 둘 기준 박스 */
+.header-container {
+  position: relative;
+  height: 72px;
+  padding: 0 24px;
+}
+
+/* 로고/타이틀: 화면 기준 항상 가운데 정렬 */
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+/* 로고 이미지 크기 */
+.logo-img {
+  height: 70px;
+  object-fit: contain;
+}
+
+/* 뒤로가기 버튼 – 왼쪽 고정 */
+.back-btn {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #462710;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* 로그인/프로필 영역 – 오른쪽 고정 */
+.userbox {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 헤더 우측 로그인 버튼 */
+.login-btn {
+  background: #462710;
+  border: 2px solid #462710;
+  color: #FFF9F2;
+  padding: 8px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #2f1708;
+  border-color: #2f1708;
+}
+
+/* 프로필 아이콘 버튼 */
+.userbtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.userbtn img.profile-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 우측 드롭다운 메뉴 */
+.menu {
+  position: absolute;
+  right: 0;
+  top: 100%;               /* 프로필 이미지 바로 아래 */
+  transform: translateY(8px);   /* 살짝 아래로 간격 */
+  
+  min-width: 160px;
+  background: #FFF9F2;          /* 전체 사이트 톤 맞춤 */
+  border-radius: 12px;
+  border: 1px solid #E2D6C8;    /* 따뜻한 베이지 라인 */
+  box-shadow: 0 6px 18px rgba(70, 39, 16, 0.12);
+  
+  padding: 6px 0;
+  z-index: 999;
+}
+
+/* hidden일 때 완전히 숨기기 */
+.menu[hidden] {
+  display: none !important;
+}
+
+/* 메뉴 아이템 */
+.menu a,
+.menu button {
+  display: block;
+  width: 100%;
+  
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #462710;     /* 사이트 텍스트 컬러 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  /* 밑줄 제거 */
+  text-decoration: none;
+  border-bottom: none; 
+}
+
+/* hover 효과 - 사이트 톤 맞춘 따뜻한 하이라이트 */
+.menu a:hover,
+.menu button:hover {
+  background: #F3E7D3;
+}
+

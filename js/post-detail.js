@@ -2,7 +2,6 @@ import { apiFetch } from './api.js';
 import { showToast, openConfirm } from './util.js';
 
 (() => {
-  const backBtn = document.querySelector('.back');
   const titleEl = document.querySelector('.post-title');
   const authorEl = document.querySelector('.author');
   const dateEl = document.querySelector('.date');
@@ -41,10 +40,6 @@ import { showToast, openConfirm } from './util.js';
     }, 1500);
     return;
   }
-
-  backBtn?.addEventListener('click', () => {
-    window.location.href = 'post-list.html';
-  });
 
   async function loadMe() {
     try {

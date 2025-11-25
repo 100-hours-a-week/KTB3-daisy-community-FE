@@ -2,10 +2,6 @@ import { setOk, setError, showToast, openConfirm } from './util.js';
 import { apiFetch } from './api.js';
 
 (() => {
-  const userBtn = document.querySelector('.userbtn');
-  const menu = document.querySelector('.menu');
-  const logoutBtn = document.getElementById('logout');
-
   const form = document.querySelector('.form');
   const pwEl = document.getElementById('pw');
   const pwConfirmEl = document.getElementById('pwConfirm');
@@ -39,21 +35,6 @@ import { apiFetch } from './api.js';
 
   loadProfile();
 
-  function toggleMenu() {
-    if (!userBtn || !menu) return;
-
-    const isOpen = userBtn.getAttribute('aria-expanded') === 'true';
-
-    userBtn.removeAttribute('aria-expanded', !isOpen);
-
-    if (isOpen) {
-      userBtn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('hidden', '');
-    } else {
-      userBtn.setAttribute('aria-expanded', 'true');
-      menu.removeAttribute('hidden');
-    }
-  }
 
   function validatePassword() {
     const pw = pwEl.value.trim();
@@ -98,41 +79,14 @@ import { apiFetch } from './api.js';
     const pwConfirm = pwConfirmEl.value.trim();
 
     if (pwRegex.test(pw) && pw && pw === pwConfirm) {
-      editBtn.style.backgroundColor = '#7F6AEE';
+      editBtn.style.backgroundColor = '#8C5B3F';
+      editBtn.style.color = '#FFFFFF';
     } else {
-      editBtn.style.backgroundColor = '';
+      editBtn.style.backgroundColor = '#E2D6C8';
+      editBtn.style.color = '#A39385';
     }
   }
 
-  userBtn?.addEventListener('click', toggleMenu);
-
-  document.addEventListener('click', (e) => {
-    if (!menu || !userBtn) return;
-
-    if (
-      !menu.contains(e.target) &&
-      !userBtn.contains(e.target)
-    ) {
-      userBtn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('hidden', '');
-    }
-  });
-
-  logoutBtn?.addEventListener('click', () => {
-    if (typeof openConfirm === 'function') {
-      openConfirm(
-        '로그아웃 하시겠습니까?',
-        '다시 로그인해야 합니다.',
-        () => {
-          location.href = '/login.html';
-        },
-      );
-    } else {
-      if (confirm('로그아웃 하시겠습니까?')) {
-        location.href = '/login.html';
-      }
-    }
-  });
 
   pwEl?.addEventListener('input', () => {
     setOk(pwEl);

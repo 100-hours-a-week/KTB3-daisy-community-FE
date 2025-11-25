@@ -9,4 +9,5 @@ document.addEventListener('DOMContentLoaded', async () => {
       el.outerHTML = html;
     })
   );
+  document.dispatchEvent(new Event('includes-loaded'));
 });

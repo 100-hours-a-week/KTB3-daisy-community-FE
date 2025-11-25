@@ -1,15 +1,31 @@
+/* 공통 배경 / 폰트 */
+html,
+body {
+  height: 100%;
+  background: #FFF3E6;
+  font-family: "Pretendard", sans-serif;
+  color: #462710;
+}
+
+/* 공통 page 레이아웃 */
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 80px;  /* 리스트 기준으로 */
+}
+
+/* helper text */
 .helper.auto {
   display: none;
   font-size: 12px;
   margin-top: 6px;
 }
-
 .helper.auto.error {
-  color: #ef4444;
+  color: #D95C5C; /* 따뜻한 레드 */
   display: block;
 }
 
-/* 중앙 토스트 메시지 (크기 키운 버전) */
+/* 중앙 토스트 */
 .toast {
   position: fixed;
   top: 50%;
@@ -17,20 +33,20 @@
   transform: translate(-50%, -50%);
 
   min-width: 260px;
-  max-width: 360px;   /* ✔ 기존보다 더 넓게 */
-  padding: 18px 22px; /* ✔ 패딩도 넉넉하게 */
+  max-width: 360px;
+  padding: 18px 22px;
 
-  background: #ffffff;       /* 화이트 카드 스타일 */
-  color: #111827;            /* 너 프로젝트 전체에서 쓰는 글자색 */
-  font-size: 15px;           /* ✔ 살짝 더 크게 */
-  font-weight: 500;
+  background: #FFF9F2;              /* 사이트 카드톤 */
+  color: #462710;                   /* 메인 텍스트 */
+  font-size: 15px;
+  font-weight: 600;
   text-align: center;
   line-height: 1.5;
 
-  border-radius: 14px;       /* ✔ 살짝 더 둥글려서 안정감 */
-  border: 1px solid #e5e7eb; /* 전체 페이지와 톤 맞추기 */
+  border-radius: 14px;
+  border: 1px solid #E2D6C8;        /* 베이지 보더 */
 
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* ✔ 더 부드럽고 존재감 있는 그림자 */
+  box-shadow: 0 12px 40px rgba(70, 39, 16, 0.15); /* 브라운 그림자 */
 
   opacity: 0;
   pointer-events: none;
@@ -38,47 +54,51 @@
   z-index: 9999;
 }
 
+/* 모달 전체 */
 .modal {
   position: fixed;
   inset: 0;
-  display: none;        /* 기본은 숨김 */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
 
 .modal.open {
-  display: flex;        /* open 클래스가 붙었을 때만 보이게 */
+  display: flex;
 }
 
-/* 반투명 배경 */
+/* 오버레이 */
 .modal .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 /* 다이얼로그 박스 */
 .modal .dialog {
   position: relative;
   width: 260px;
-  background: #fff;
+  background: #FFF9F2;             /* 통일 */
   border-radius: 14px;
   padding: 22px 18px 18px;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+  border: 1px solid #E2D6C8;       /* 베이지 보더 */
+  box-shadow: 0 6px 30px rgba(70, 39, 16, 0.15);
   text-align: center;
 }
 
-/* 제목 / 설명 */
+/* 제목 */
 .modal .title {
   font-size: 16px;
   font-weight: 700;
-  color: #111827;
+  color: #462710;                 /* 메인 텍스트 */
   margin-bottom: 8px;
 }
+
+/* 설명 */
 .modal .description {
   font-size: 13px;
-  color: #6B7280;
+  color: #6B6460;                /* 따뜻한 그레이 */
   margin-bottom: 18px;
 }
 
@@ -88,6 +108,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
+
+/* 버튼 공통 */
 .modal .btn {
   height: 38px;
   border: none;
@@ -96,14 +118,19 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+/* 취소 버튼 (고동색) */
 .modal .btn.cancel {
-  background: #111827;
-  color: #fff;
+  background: #462710;
+  color: #FFF9F2;
 }
+
+/* 확인 버튼 (브랜드 컬러) */
 .modal .btn.confirm {
-  background: #ACA0EB;
-  color: #fff;
+  background: #8C5B3F;
+  color: #FFF9F2;
 }
+
 .modal .btn.confirm:hover {
-  background: #7F6AEE;
+  background: #744730;
 }

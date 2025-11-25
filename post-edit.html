@@ -3,19 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>아무 말 대잔치 | 게시글 작성</title>
+
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/post-edit.css" />
   <link rel="stylesheet" href="css/util.css" />
 </head>
-<body>
-  <header class="site-header">
-    <button class="back" type="button" aria-label="뒤로가기">‹</button>
-    <h1>아무 말 대잔치</h1>
-    <div class="user-icon">
-      <img src="img/default-profile.svg" alt="사용자" />
-    </div>
-  </header>
-
+<body data-page="post-edit">
+  <div data-include="header.html"></div>
   <main class="page">
     <section class="editor">
       <h2 class="page-title">게시글 작성</h2>
@@ -23,13 +17,13 @@
       <form class="form" novalidate>
         <!-- 제목 -->
         <div class="field">
-          <label for="title">제목<span class="req">*</span></label>
+          <label for="title">제목</label>
           <input id="title" type="text" maxlength="26" placeholder="제목을 입력해주세요. (최대 26글자)" />
         </div>
 
         <!-- 내용 -->
         <div class="field">
-          <label for="content">내용<span class="req">*</span></label>
+          <label for="content">내용</label>
           <textarea id="content" rows="8" placeholder="내용을 입력해주세요."></textarea>
         </div>
 
@@ -39,8 +33,6 @@
 
           <div class="filebox">
             <input id="image" type="file" accept="image/*" />
-            <label for="image" class="btn file-btn" role="button">파일 선택</label>
-            <span class="file-hint">파일을 선택해주세요.</span>
           </div>
         </div>
 
@@ -53,6 +45,7 @@
   </main>
   <div data-include="modal.html"></div>
   <script src="js/include.js"></script>
+  <script type="module" src="js/header.js" defer></script>
   <script type="module" src="js/post-edit.js" defer></script>
 </body>
 </html>

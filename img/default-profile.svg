@@ -1,16 +1,7 @@
-<?xml version="1.0" ?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 48 48" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<style>.cls-1{fill:#55aae1;}.cls-2{opacity:0.35;}</style>
-</defs>
-<title/>
-<path class="cls-1" d="M24,28A12,12,0,1,1,36,16,12,12,0,0,1,24,28ZM24,6A10,10,0,1,0,34,16,10,10,0,0,0,24,6Z"/>
-<path class="cls-1" d="M41,44H7.05a1,1,0,0,1-.73-.31,1,1,0,0,1-.27-.75,18,18,0,0,1,35.9,0,1,1,0,0,1-.27.75A1,1,0,0,1,41,44ZM8.15,42h31.7a16,16,0,0,0-31.7,0Z"/>
-<g class="cls-2">
-<path class="cls-1" d="M30.71,7.29A11,11,0,0,1,15.29,22.71,11,11,0,1,0,30.71,7.29Z"/>
-</g>
-<g class="cls-2">
-<path class="cls-1" d="M32,29a16.87,16.87,0,0,1,4.81,9.82,1,1,0,0,1-1,1.15H7.51a16.45,16.45,0,0,0-.46,3H41A17,17,0,0,0,32,29Z"/>
-</g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier"> <path d="M12 14H12.01M12 11H12.01M5.63233 15.4206L8 14L6.19496 18.8134C5.61677 20.3553 6.75656 22 8.40325 22C9.36763 22 10.2349 21.4129 10.593 20.5175L12 17L13.407 20.5175C13.7651 21.4129 14.6324 22 15.5968 22C17.2434 22 18.3832 20.3553 17.805 18.8134L16 14L17.8239 15.0944C19.2217 15.933 21 14.9262 21 13.2961C21 12.5018 20.5512 11.7756 19.8407 11.4204L14.7705 8.88523C15.5283 8.15735 16 7.13376 16 6C16 3.79086 14.2091 2 12 2C9.79086 2 8 3.79086 8 6C8 7.12205 8.46199 8.13619 9.20614 8.86258L3.77397 12.484C3.29044 12.8064 3 13.3491 3 13.9302C3 15.2812 4.47385 16.1157 5.63233 15.4206Z" stroke="#462710" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
 </svg>

@@ -2,10 +2,6 @@ import { setError, setOk, showToast, openConfirm } from './util.js';
 import { apiFetch } from './api.js';
 
 (() => {
-  const userBtn = document.querySelector('.userbtn');
-  const menu = document.querySelector('.menu');
-  const logoutBtn = document.getElementById('logout');
-
   const avatarInput = document.getElementById('avatar');
   const avaterPreview = document.getElementById('avatarPreview');
 
@@ -50,20 +46,6 @@ import { apiFetch } from './api.js';
 
   loadProfile();
 
-  function toggleMenu() {
-    if (!userBtn || !menu) return;
-    const isOpen = userBtn.getAttribute('aria-expanded') === 'true';
-
-    userBtn.removeAttribute('aria-expanded', !isOpen);
-    if (isOpen) {
-      userBtn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('hidden', '');
-    } else {
-      userBtn.setAttribute('aria-expanded', 'true');
-      menu.removeAttribute('hidden');
-    }
-  }
-
   function validateNickname() {
     if (!nicknameEl) return true;
 
@@ -86,29 +68,6 @@ import { apiFetch } from './api.js';
     return true;
   }
 
-  userBtn?.addEventListener('click', toggleMenu);
-
-  document.addEventListener('click', (e) => {
-    if (!menu || !userBtn) return;
-    if (!menu.contains(e.target) && !userBtn.contains(e.target)) {
-      userBtn.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('hidden', '');
-    }
-  });
-
-  logoutBtn?.addEventListener('click', () => {
-      openConfirm('로그아웃 하시겠습니까?', '다시 로그인해야 합니다.', async () => {
-        try {
-          await apiFetch('/users/auth/revoke', {
-            method: 'POST',
-          });
-        } catch (_) {
-
-        }
-        location.href = '/login.html';
-      }
-    );
-  });
 
   avatarInput?.addEventListener('change', () => {
     const file = avatarInput.files[0];
@@ -140,7 +99,8 @@ import { apiFetch } from './api.js';
       showToast('사용 가능한 닉네임입니다.', 2000);
 
       editBtn.disabled = false;
-      editBtn.style.backgroundColor ='#7F6AEE';
+      editBtn.style.backgroundColor = '#8C5B3F';
+      editBtn.style.color = '#FFFFFF';
     } catch (err) {
       console.error('닉네임 중복확인 실패:' , err);
       setError(nicknameEl, '이미 사용 중인 닉네임입니다.');
