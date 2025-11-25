@@ -80,9 +80,11 @@ import { apiFetch } from './api.js';
     const content = contentEl.value.trim();
 
     if (title && content) {
-      editBtn.style.backgroundColor = '#7F6AEE';
+      editBtn.style.backgroundColor = '#8C5B3F';
+      editBtn.style.color = '#FFFFFF';
     } else {
-      editBtn.style.backgroundColor = '';
+      editBtn.style.backgroundColor = '#E2D6C8';
+      editBtn.style.color = '#A39385';
     }
   }
 
