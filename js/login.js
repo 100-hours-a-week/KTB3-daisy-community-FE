@@ -56,9 +56,11 @@ import { apiFetch } from './api.js';
     const pw = pwEl.value.trim();
 
     if (emailRegex.test(email) && pwRegex.test(pw)) {
-      loginBtn.style.backgroundColor = '#7F6AEE';
+      loginBtn.style.backgroundColor = '#8C5B3F'; 
+      loginBtn.style.color = '#FFFFFF';
     } else {
-      loginBtn.style.backgroundColor = '';
+      loginBtn.style.backgroundColor = '#E2D6C8';
+      loginBtn.style.color = '#A39385';
     }
   }
 
