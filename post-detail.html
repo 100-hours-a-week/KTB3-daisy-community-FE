@@ -4,20 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>아무 말 대잔치 | 게시글 상세</title>
+  <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/post-detail.css" />
   <link rel="stylesheet" href="css/util.css" />
 </head>
-<body>
-  <!-- 헤더 -->
-  <header class="site-header">
-    <button class="back" type="button" aria-label="뒤로가기">‹</button>
-    <h1>아무 말 대잔치</h1>
-    <div class="user-icon">
-      <img src="img/default-profile.svg" alt="사용자" />
-    </div>
-  </header>
-
+<body data-page="post-detail">
   <!-- 메인 -->
+  <div data-include="header.html"></div>
   <main class="page">
     <article class="card detail">
 
@@ -66,7 +59,9 @@
       <ul class="comment-list"></ul>
     </article>
   </main>
-
+  <div data-include="modal.html"></div>
+  <script src="js/include.js"></script>
+  <script type="module" src="js/header.js"></script>
   <script type="module" src="js/post-detail.js" defer></script>
 </body>
 </html>
