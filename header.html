@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="header-container">
+
+    <!-- 뒤로가기 버튼 -->
+    <button class="back-btn" type="button" aria-label="뒤로가기">‹</button>
+
+    <!-- 로고 -->
+    <h1 class="header-title">
+      <a href="post-list.html">
+        <img class="logo-img" src="img/logo.svg" alt="사이트 로고" />
+      </a>
+    </h1>
+
+    <!-- 우측 사용자 영역 -->
+    <div class="userbox">
+      <!-- 로그인 전 -->
+      <button class="login-btn" type="button">로그인</button>
+
+      <!-- 로그인 후 -->
+      <button class="userbtn" type="button" aria-haspopup="menu" aria-expanded="false" hidden>
+        <img class="profile-img" src="img/default-profile.svg" alt="사용자" />
+      </button>
+
+      <!-- 드롭다운 메뉴 -->
+      <nav class="menu" role="menu" hidden>
+        <a href="profile-edit.html" role="menuitem">회원정보수정</a>
+        <a href="password-edit.html" role="menuitem">비밀번호수정</a>
+        <button id="logout" type="button" role="menuitem">로그아웃</button>
+      </nav>
+    </div>
+
+  </div>
+</header>
