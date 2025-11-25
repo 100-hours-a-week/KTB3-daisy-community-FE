@@ -13,7 +13,6 @@ import { apiFetch } from './api.js';
   const pwConfirmEl = document.getElementById('pwConfirm');
   const nicknameEl = document.getElementById('nickname');
 
-  const backBtn = document.querySelector('.back');
   const signinBtn = document.querySelector('.btn.primary');
   const loginBtn = document.querySelector('.btn.link');
 
@@ -110,9 +109,11 @@ import { apiFetch } from './api.js';
     const nickname = nicknameEl.value.trim();
 
     if (email && pw && pwConfirm && nickname) {
-      signinBtn.style.backgroundColor = '#7F6AEE';
+      signinBtn.style.backgroundColor = '#8C5B3F';
+      signinBtn.style.color = '#FFFFFF'; 
     } else {
-      signinBtn.style.backgroundColor = '';
+      signinBtn.style.backgroundColor = '#E2D6C8';
+      signinBtn.style.color = '#A39385';
     }
   }
 
@@ -134,10 +135,6 @@ import { apiFetch } from './api.js';
   nicknameEl.addEventListener('input', () => {
     validateNickname();
     updateBtnState();
-  });
-
-  backBtn.addEventListener('click', () => {
-    window.location.href = 'post-list.html';
   });
 
   loginBtn.addEventListener('click', () => {
@@ -194,12 +191,30 @@ import { apiFetch } from './api.js';
       console.error('회원가입 실패: ', err);
 
       if (err.status === 409) {
-        showToast('이미 사용 중인 이메일입니다.', 1500);
-        setError(emailEl, '이미 사용 중인 이메일입니다.');
-        return
+        const errors = err.data?.errors || [];
+        const emailConflict = errors.some(e => e.field === 'email');
+        const nicknameConflict = errors.some(e => e.field === 'nickname');
+
+        if (emailConflict) {
+          setError(emailEl, '이미 사용 중인 이메일입니다.');
+        }
+        if (nicknameConflict) {
+          setError(nicknameEl, '이미 사용 중인 닉네임입니다.');
+        }
+
+        const msg =
+      emailConflict && nicknameConflict
+        ? '이미 사용 중인 이메일과 닉네임입니다.'
+        : emailConflict
+        ? '이미 사용 중인 이메일입니다.'
+        : nicknameConflict
+        ? '이미 사용 중인 닉네임입니다.'
+        : (err.data?.message || '이미 사용 중인 정보가 있습니다.');
+        showToast(msg, 1500);
+        return;
       }
       if (err.status === 400) {
-        showToast(err.data?.message || '입력 값을 다시 확인해주세요.', 1500);
+        showToast('입력 값을 다시 확인해주세요.', 1500);
       } else {
         showToast('회원가입에 실패했습니다. 잠시 후 다시 시도해주세요.', 1500);
       }

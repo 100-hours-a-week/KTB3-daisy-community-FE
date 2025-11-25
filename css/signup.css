@@ -1,56 +1,28 @@
 /* 기본 리셋 */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {
-  height: 100%;
-  background: #f4f5f7;
-  font-family: "Pretendard", sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* 헤더 */
-.site-header {
-  position: relative;
-  border-bottom: 1px solid #e5e7eb;
-  text-align: center;
-  padding: 24px 0;
-}
-
-.site-header h1 {
-  font-size: 32px;
-  font-weight: 600;
-}
-
-/* 뒤로가기 버튼 */
-.back {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 28px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 4px 8px;
-}
-
-/* 레이아웃 */
-.page {
-  display: flex;
-  justify-content: center;
-  padding-top: 40px;
-}
 
 /* 카드 */
 .card {
   width: 400px;
+  padding: 32px 28px;
   text-align: center;
-  background: transparent;
-  box-shadow: none;
+  background: #FFF9F2;           /* 부드러운 오프화이트 카드 */
+  border-radius: 16px;
+  border: 1px solid #E2D6C8;     /* 따뜻한 베이지 라인 */
+  box-shadow: 0 4px 10px rgba(70, 39, 16, 0.08);
 }
 
+/* 제목 */
 .card-title {
-  font-size: 28px;
-  margin-bottom: 24px;
+  font-size: 24px;
   font-weight: 700;
+  margin-bottom: 24px;
+  color: #462710;
 }
 
 /* 프로필 업로더 */
@@ -64,48 +36,43 @@ html, body {
   font-size: 14px;
   margin-bottom: 10px;
   text-align: left;
+  color: #462710;
 }
 
-.req {
-  color: #ef4444;
-  font-weight: 700;
-  margin-left: 2px;
-}
 
 /* 동그란 프로필 틀 */
 .avatar {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  border: 1px solid #d1d5db;
-  background: #e5e7eb;
+  border: 1px solid #D9CBB8;
+  background: #F7F2EB;
   margin: 0 auto;
-  position: relative;      /* 안에 있는 img, +를 절대위치로 올리기 위해 */
-  overflow: hidden;        /* 둥근 틀 밖으로 삐져나온 부분 잘라내기 */
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
-/* 기본 / 선택된 이미지가 동그란 틀 안에 꽉 차게 */
+/* 기본 / 선택된 이미지 */
 .avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* 비율 유지하면서 잘라서 채우기 */
+  object-fit: cover;
   border-radius: 50%;
   display: block;
 }
 
-/* + 아이콘을 가운데에 겹치게 (원하면 오른쪽 아래로 옮겨도 됨) */
+/* + 아이콘 */
 .plus {
   position: absolute;
   font-size: 36px;
-  color: #4b5563;
+  color: #6B6460;
   transform: translateY(-2px);
-  pointer-events: none;    /* 클릭 이벤트는 input(label)에 가도록 */
+  pointer-events: none;
 }
-
 
 /* 폼 */
 .form {
@@ -123,61 +90,60 @@ html, body {
   margin-bottom: 6px;
   font-weight: 500;
   font-size: 14px;
+  color: #462710;
 }
 
 .field input {
   width: 100%;
   height: 40px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border-radius: 8px;
+  border: 1px solid #D9CBB8;
   padding: 0 12px;
-  background: white;
+  font-size: 14px;
+  background-color: #FFFDF9;
 }
 
 .field input:focus {
+  border-color: #D9A86C;
+  box-shadow: 0 0 0 3px rgba(217, 168, 108, 0.25);
   outline: none;
-  border-color: #a78bfa;
-  box-shadow: 0 0 0 3px rgba(167,139,250,0.25);
 }
 
-.helper {
-  font-size: 12px;
-  margin-top: 4px;
-  color: #ef4444;
-  display: none;
-}
 
-.helper.error {
-  display: block;
-}
-
-/* 버튼 */
+/* 버튼 공통 */
 .btn {
   width: 100%;
   height: 44px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   border: none;
 }
 
+/* 기본 액션 버튼 (회원가입) */
 .btn.primary {
-  background: #aca0eb;
-  color: white;
+  background-color: #E2D6C8;   /* 진한 빵 크러스트 느낌 */
+  color: #A39385;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.btn.primary:hover {
-  background: #7f6aee;
+.btn.primary:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
 }
 
+/* 부가 버튼 (예: 로그인으로 이동) */
 .btn.link {
-  background: transparent;
   width: auto;
-  margin-top: 12px;
   padding: 8px 16px;
+  background: transparent;
+  margin-top: 10px;
+  color: #6B6460;
+  font-size: 14px;
 }
 
 .btn.link:hover {
-  background: #f3f4f6;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
 }
