@@ -1,5 +1,6 @@
 import { setOk, setError, showToast, openConfirm } from './util.js';
 import { apiFetch } from './api.js';
+import { requireLogin } from './auth.js';   
 
 (() => {
   const form = document.querySelector('.form');
@@ -32,9 +33,6 @@ import { apiFetch } from './api.js';
       showToast('사용자 정보를 불러오지 못했습니다.', 2000);
     }
   }
-
-  loadProfile();
-
 
   function validatePassword() {
     const pw = pwEl.value.trim();
@@ -86,7 +84,6 @@ import { apiFetch } from './api.js';
       editBtn.style.color = '#A39385';
     }
   }
-
 
   pwEl?.addEventListener('input', () => {
     setOk(pwEl);
@@ -153,4 +150,17 @@ import { apiFetch } from './api.js';
       updateBtnState();
     }
   });
+
+  (async () => {
+    const ok = await requireLogin();
+    if (!ok) {
+      showToast('로그인이 필요합니다.', 1500);
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1500);
+      return;
+    }
+
+    await loadProfile();
+  })();
 })();
