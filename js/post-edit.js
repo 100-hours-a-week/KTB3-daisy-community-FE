@@ -1,5 +1,6 @@
 import { setOk, setError, showToast, openConfirm } from './util.js';
 import { apiFetch } from './api.js';
+import { requireLogin } from './auth.js';   
 
 (() => {
   const backBtn = document.querySelector('.back');
@@ -158,6 +159,15 @@ import { apiFetch } from './api.js';
   });
 
   (async () => {
+    const ok = await requireLogin();
+    if (!ok) {
+      showToast('로그인이 필요합니다.', 1500);
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1500);
+      return;
+    }
+
     await loadPostEdit();
   })();
 })();

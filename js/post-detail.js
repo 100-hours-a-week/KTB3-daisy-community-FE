@@ -1,5 +1,6 @@
 import { apiFetch } from './api.js';
 import { showToast, openConfirm } from './util.js';
+import { requireLogin } from './auth.js';   
 
 (() => {
   const titleEl = document.querySelector('.post-title');
@@ -158,10 +159,7 @@ import { showToast, openConfirm } from './util.js';
 
   function appendComments(items) {
     if (!commentListEl) return;
-
-    if (!items || items.length === 0) {
-      return;
-    }
+    if (!items || items.length === 0) return;
 
     const html = items
       .map((c) => {
@@ -203,7 +201,7 @@ import { showToast, openConfirm } from './util.js';
     commentIsLoading = true;
 
     try {
-      let url =
+      const url =
         reset || commentNextCursor == null
           ? `/posts/${postId}/comments`
           : `/posts/${postId}/comments?cursor=${commentNextCursor}`;
@@ -243,7 +241,6 @@ import { showToast, openConfirm } from './util.js';
     });
   }
 
-
   function setupCommentEvents() {
     if (!commentListEl) return;
 
@@ -279,7 +276,6 @@ import { showToast, openConfirm } from './util.js';
         return;
       }
 
- 
       if (target.classList.contains('comment-edit')) {
         const li = target.closest('li[data-comment-id]');
         if (!li || li.classList.contains('editing')) return;
@@ -327,7 +323,6 @@ import { showToast, openConfirm } from './util.js';
         return;
       }
 
-
       if (target.classList.contains('comment-cancel')) {
         const li = target.closest('li[data-comment-id]');
         const textEl = li.querySelector('.text');
@@ -339,38 +334,19 @@ import { showToast, openConfirm } from './util.js';
     });
   }
 
-
-  commentSubmit?.addEventListener('click', async () => {
-    const text = commentInput.value.trim();
-    if (!text) {
-      showToast('댓글을 입력해주세요.', 1500);
+  (async () => {
+    const ok = await requireLogin();      
+    if (!ok) {
+      showToast('로그인이 필요합니다.', 1500);
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1500);
       return;
     }
 
-    try {
-      await apiFetch(`/posts/${postId}/comments`, {
-        method: 'POST',
-        body: JSON.stringify({ content: text }),
-      });
-
-      commentInput.value = '';
-      await loadPost();
-
-      commentNextCursor = null;
-      commentIsLast = false;
-      commentListEl.innerHTML = '';
-      await loadComments({ reset: true });
-    } catch (err) {
-      console.error('댓글 등록 실패:', err);
-      showToast('댓글 등록에 실패했습니다.', 1500);
-    }
-  });
-
-  (async () => {
     await loadMe();
     await loadPost();
     await refreshLikeState();
-
     await loadComments({ reset: true });
     setupCommentInfiniteScroll();
     setupCommentEvents();
